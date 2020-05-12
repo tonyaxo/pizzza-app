@@ -1,0 +1,47 @@
+[
+    {
+      "code": "pizza",
+      "name": "\u041f\u0438\u0446\u0446\u0430",
+      "slug": "pitstsa",
+      "description": "Voluptatem omnis consequatur consectetur voluptas. Nobis mollitia dolorum quidem. Corporis perspiciatis eum ex voluptas deserunt.",
+      "position": 0,
+      "children": [],
+      "images": []
+    },
+    {
+      "code": "roll",
+      "name": "\u0420\u043e\u043b\u044b",
+      "slug": "roly",
+      "description": "Minima nihil soluta sequi quas dignissimos vel aliquid. Debitis ad cum tempora est quas officia cumque. Ullam voluptate neque non. Quam impedit totam earum omnis voluptas enim minus quisquam.",
+      "position": 1,
+      "children": [],
+      "images": []
+    },
+    {
+      "code": "combo",
+      "name": "\u041a\u043e\u043c\u0431\u043e",
+      "slug": "kombo",
+      "description": "Repellendus corrupti aliquam sequi. Ipsa rerum velit aut aliquid. Eligendi eveniet doloremque vel quasi possimus tempore hic.",
+      "position": 2,
+      "children": [],
+      "images": []
+    },
+    {
+      "code": "drinks",
+      "name": "\u041d\u0430\u043f\u0438\u0442\u043a\u0438",
+      "slug": "napitki",
+      "description": "Occaecati eum ut delectus odio. Enim nihil impedit amet. Quis rerum molestias porro recusandae.",
+      "position": 3,
+      "children": [],
+      "images": []
+    },
+    {
+      "code": "others",
+      "name": "\u0414\u0440\u0443\u0433\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u044b",
+      "slug": "drugie-tovary",
+      "description": "Laboriosam aut cupiditate rem nobis dolores vel. Minus autem reiciendis laboriosam reiciendis et temporibus nihil saepe.",
+      "position": 4,
+      "children": [],
+      "images": []
+    }
+  ]

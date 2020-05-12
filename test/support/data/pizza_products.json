@@ -1,0 +1,413 @@
+{
+    "page": 1,
+    "limit": 100,
+    "pages": 1,
+    "total": 3,
+    "_links": {
+      "self": "/shop-api/taxon-products/by-code/pizza?limit=100&page=1",
+      "first": "/shop-api/taxon-products/by-code/pizza?limit=100&page=1",
+      "last": "/shop-api/taxon-products/by-code/pizza?limit=100&page=1",
+      "next": "/shop-api/taxon-products/by-code/pizza?limit=100&page=1"
+    },
+    "items": [
+      {
+        "code": "pizza_pepperoni",
+        "name": "\u041f\u0435\u043f\u043f\u0435\u0440\u043e\u043d\u0438",
+        "slug": "pepperoni",
+        "channelCode": "main_channel",
+        "description": "Qui quia est minus sint. Repellendus placeat adipisci reiciendis vel qui tempore. Fuga neque possimus quae dolorem molestiae odio. Culpa distinctio magni molestias voluptas quis magnam.\n\nDicta voluptas omnis ex rerum illum. Est a impedit quis neque rem.\n\nIure et et iure sit. Ut similique eum iure ut. Occaecati accusamus earum accusamus eligendi quod ea. Sed aliquid soluta accusantium quia illo veritatis qui.",
+        "shortDescription": "Tenetur earum est itaque repellat qui consequuntur libero. Dicta sunt ullam aut velit repellendus illum voluptatem tempore. Fuga culpa quod voluptate odio in architecto. Voluptatem quod non et in sunt.",
+        "averageRating": 0,
+        "taxons": {
+          "main": "pizza",
+          "others": [
+            "pizza"
+          ]
+        },
+        "variants": {
+          "pizza_pepperoni-variant-0": {
+            "code": "pizza_pepperoni-variant-0",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3634,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_pepperoni-variant-1": {
+            "code": "pizza_pepperoni-variant-1",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3682,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_pepperoni-variant-2": {
+            "code": "pizza_pepperoni-variant-2",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 5383,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_pepperoni-variant-3": {
+            "code": "pizza_pepperoni-variant-3",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3099,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_pepperoni-variant-4": {
+            "code": "pizza_pepperoni-variant-4",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3103,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_pepperoni-variant-5": {
+            "code": "pizza_pepperoni-variant-5",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 7040,
+              "currency": "RUB"
+            },
+            "images": []
+          }
+        },
+        "attributes": [],
+        "associations": [],
+        "images": [
+          {
+            "code": "main",
+            "path": "ac/80/36a29d7ff171e57026bd733ab43f.jpeg",
+            "cachedPath": "http://localhost/media/cache/sylius_shop_api/ac/80/36a29d7ff171e57026bd733ab43f.jpeg"
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "/shop-api/products/by-slug/pepperoni"
+          }
+        }
+      },
+      {
+        "code": "pizza_margarita",
+        "name": "\u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430",
+        "slug": "margarita",
+        "channelCode": "main_channel",
+        "description": "Quas enim fugiat itaque omnis neque et non. A quo praesentium perferendis rerum ullam repellendus.\n\nEaque quia dolore velit et nisi est iure. Atque ea aperiam ipsam omnis dolore. Minima voluptatem necessitatibus qui et eligendi.\n\nBlanditiis molestias et magnam culpa delectus vitae. Et accusantium voluptate nam repudiandae soluta pariatur asperiores. Iure voluptas earum facilis perspiciatis aut.",
+        "shortDescription": "Aperiam voluptatem quas ducimus enim voluptate corporis ipsum. Dolorem exercitationem occaecati vitae ut odit est. Asperiores ipsam aut officia voluptas maxime.",
+        "averageRating": 0,
+        "taxons": {
+          "main": "pizza",
+          "others": [
+            "pizza"
+          ]
+        },
+        "variants": {
+          "pizza_margarita-variant-0": {
+            "code": "pizza_margarita-variant-0",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 9187,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_margarita-variant-1": {
+            "code": "pizza_margarita-variant-1",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 8708,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_margarita-variant-2": {
+            "code": "pizza_margarita-variant-2",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3280,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_margarita-variant-3": {
+            "code": "pizza_margarita-variant-3",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 6013,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_margarita-variant-4": {
+            "code": "pizza_margarita-variant-4",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3499,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_margarita-variant-5": {
+            "code": "pizza_margarita-variant-5",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 2381,
+              "currency": "RUB"
+            },
+            "images": []
+          }
+        },
+        "attributes": [],
+        "associations": [],
+        "images": [
+          {
+            "code": "main",
+            "path": "59/94/6785f47f6a97af8de929f66e953a.jpeg",
+            "cachedPath": "http://localhost/media/cache/sylius_shop_api/59/94/6785f47f6a97af8de929f66e953a.jpeg"
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "/shop-api/products/by-slug/margarita"
+          }
+        }
+      },
+      {
+        "code": "pizza_hawaiian",
+        "name": "\u0413\u0430\u0432\u0430\u0439\u0441\u043a\u0430\u044f",
+        "slug": "gavaiskaia",
+        "channelCode": "main_channel",
+        "description": "Veritatis consequatur quisquam dolores et nihil consequuntur aut. Atque accusantium est amet id aut libero sapiente. Libero a unde dolorem quod. Voluptatem temporibus labore qui excepturi delectus.\n\nDolorem non corrupti natus laboriosam doloribus. Sint vero est cumque et molestiae sint. Illo voluptatem adipisci commodi dolor. Inventore libero sed et repellendus laboriosam.\n\nUt fugit rerum omnis. Enim est iusto eos rerum sequi alias. Quam quidem aperiam dolores quibusdam id eaque est. Doloremque eveniet soluta ipsam commodi ut sit veniam.",
+        "shortDescription": "Pariatur similique reiciendis nesciunt a id qui. Ullam dolore ullam quam cum consectetur est. Ut sit consequatur quasi sunt est.",
+        "averageRating": 0,
+        "taxons": {
+          "main": "pizza",
+          "others": [
+            "pizza"
+          ]
+        },
+        "variants": {
+          "pizza_hawaiian-variant-0": {
+            "code": "pizza_hawaiian-variant-0",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 6461,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_hawaiian-variant-1": {
+            "code": "pizza_hawaiian-variant-1",
+            "name": "\u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_small",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_small": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u041c\u0430\u043b\u0435\u043d\u044c\u043a\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 5989,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_hawaiian-variant-2": {
+            "code": "pizza_hawaiian-variant-2",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 6399,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_hawaiian-variant-3": {
+            "code": "pizza_hawaiian-variant-3",
+            "name": "\u0421\u0440\u0435\u0434\u043d\u044f\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_medium",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_medium": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0421\u0440\u0435\u0434\u043d\u044f\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 7232,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_hawaiian-variant-4": {
+            "code": "pizza_hawaiian-variant-4",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_small"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_small": "\u0422\u0435\u0441\u0442\u043e \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 3978,
+              "currency": "RUB"
+            },
+            "images": []
+          },
+          "pizza_hawaiian-variant-5": {
+            "code": "pizza_hawaiian-variant-5",
+            "name": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u0422\u043e\u043d\u043a\u043e\u0435",
+            "axis": [
+              "pizza_size_large",
+              "pizza_dough_medium"
+            ],
+            "nameAxis": {
+              "pizza_size_large": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u0438\u0446\u0446\u044b \u0411\u043e\u043b\u044c\u0448\u0430\u044f",
+              "pizza_dough_medium": "\u0422\u0435\u0441\u0442\u043e \u0422\u043e\u043d\u043a\u043e\u0435"
+            },
+            "price": {
+              "current": 9063,
+              "currency": "RUB"
+            },
+            "images": []
+          }
+        },
+        "attributes": [],
+        "associations": [],
+        "images": [
+          {
+            "code": "main",
+            "path": "9c/47/3272082e7c490098a697fca2b014.jpeg",
+            "cachedPath": "http://localhost/media/cache/sylius_shop_api/9c/47/3272082e7c490098a697fca2b014.jpeg"
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "/shop-api/products/by-slug/gavaiskaia"
+          }
+        }
+      }
+    ]
+  }
