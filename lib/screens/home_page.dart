@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
         builder: (_) {
 
           _createNavigationMap();
-          
+
           return CustomScrollView(
             controller: _controller,
             slivers: <Widget>[
@@ -107,19 +107,28 @@ class _HomePageState extends State<HomePage> {
                 pinned: true,
                 flexibleSpace: NavigationList(widget._store.categories, navigationActiveItem, onCategorySelect),
               ),
-              SliverFixedExtentList(
-                itemExtent: ProductListItem.height,
-                delegate: SliverChildListDelegate(
-                  
-                  widget._store.products.entries.map((product) => ProductListItem(product.value) ).toList()
-                ),
-              ),
-
+              _catalogContent(),
             ],
           );
         }
       ),
       bottomNavigationBar: BottomBar(),
+    );
+  }
+
+  Widget _catalogContent() {
+    if (widget._store.products.isEmpty) {
+      return SliverToBoxAdapter(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    return SliverFixedExtentList(
+      itemExtent: ProductListItem.height,
+      delegate: SliverChildListDelegate(
+        
+        widget._store.products.entries.map((product) => ProductListItem(product.value) ).toList()
+      ),
     );
   }
 }
