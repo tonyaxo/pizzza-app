@@ -1,9 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:foodcourt/router/router.dart';
+import 'package:intl/intl.dart';
 
 import '../models/product.dart';
+import '../router/router.dart';
 
 class ProductListItem extends StatelessWidget {
 
@@ -54,6 +55,14 @@ class ProductListItem extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.w200, fontSize: 16.0, color: Colors.grey[900]),
                     ),
                   ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 7.0),
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      "от ${_getPrice(context)}", 
+                      style: TextStyle(fontSize: 18.0, color: Colors.orange),
+                    ),
+                  ),
                 ],
               ),
             )
@@ -70,6 +79,12 @@ class ProductListItem extends StatelessWidget {
 
   String _getDescription() {
     return _product.attributes.length > 100 ? _product.attributes.substring(0, 100) : _product.attributes;
+  }
+
+  String _getPrice(BuildContext ctx) {
+    Locale locale = Localizations.localeOf(ctx);
+    var price = NumberFormat.simpleCurrency(name: _product.minPrice.currency, locale: locale.toString());
+    return price.format(_product.minPrice.value / 100);
   }
   
 

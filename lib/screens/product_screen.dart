@@ -1,16 +1,66 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodcourt/models/product.dart';
+import 'package:intl/intl.dart';
 
-class ProductScreen extends StatelessWidget {
+import '../models/product.dart';
 
-  final double mainPadding = 15.0;
-  
+/// Screen shows product description and let choose variant to buy.
+class ProductScreen extends StatefulWidget {
+
+  /// Product itself 
   final Product _product;
 
   ProductScreen(this._product);
 
+  @override
+  State<StatefulWidget> createState() => _ProductScreen();
+
+  /// Widget to show image.
+  Widget _getImage(Product product, double width, double height) {
+    return product.imageUrl == null 
+      ? Image.asset('images/product-pizza-no-image.jpg', cacheHeight: height.toInt(),) 
+      : FadeInImage.assetNetwork(
+          placeholder: 'images/product-pizza-no-image.jpg', 
+          image: product.imageUrl,
+          width: width,
+          height: height,
+          // imageCacheWidth: width.toInt(),
+          // imageCacheHeight: height.toInt(),
+          fit: BoxFit.contain,
+        );
+  }
+}
+
+/// Screen state.
+class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin {
+
+  final double mainPadding = 15.0;
+
+  /// Selected options [Map<optionCode, optionValueCode>]
+  Map<String, String> _currentOptions = Map<String, String>();
+
+  /// Selected varaint
+  ProductVariant get _currentVariant {
+    var options = _currentOptions.entries.map((e) => e.value).toList();
+    var key = VariantKey(options);
+    return widget._product.variants.containsKey(key) ? widget._product.variants[key] : null;
+  }
+
+  @override
+  void initState() { 
+    super.initState();
+    _initBaseVariant();
+  }
+
+  /// Init base product varinat options.
+  void _initBaseVariant() {
+    widget._product.options.forEach((optionCode, option) {
+      _currentOptions[optionCode] = option.values.entries.first.key;
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
 
@@ -39,14 +89,14 @@ class ProductScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _getImage(_product, imageWidth, imageWidth)
+                  widget._getImage(widget._product, imageWidth, imageWidth)
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    _product.name, 
+                    widget._product.name, 
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
                   ),
                 ],
@@ -56,70 +106,85 @@ class ProductScreen extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      _product.attributes, 
+                      widget._product.attributes, 
                       style: TextStyle(fontSize: 16.0),
                     ),
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ButtonBar(
-                    children: <Widget>[
-                      MaterialButton(onPressed: () {}, child: Text('Маленькая'), autofocus: true,),
-                      MaterialButton(onPressed: () {}, child: Text('Средняя')),
-                      MaterialButton(onPressed: () {}, child: Text('Большая')),
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ButtonBar(
-                    children: <Widget>[
-                      MaterialButton(onPressed: () {}, child: Text('Классическое')),
-                      MaterialButton(onPressed: () {}, child: Text('Тонкое')),
-                    ],
-                  ),
-                ],
-              ),
-            ]
+            ] + _buildOptions()
           ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: ButtonBar(
-          alignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MaterialButton(
-              onPressed: () {},
-              child: Text('Добавить в корзину за 500 р.', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-              color: Theme.of(context).buttonColor,
-              textColor: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 25.0),
-              minWidth: double.maxFinite,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: _buildAddToCartButton(),      
     );
   }
 
-  Widget _getImage(Product product, double width, double height) {
-    return product.imageUrl == null 
-      ? Image.asset('images/product-pizza-no-image.jpg', cacheHeight: height.toInt(),) 
-      : FadeInImage.assetNetwork(
-          placeholder: 'images/product-pizza-no-image.jpg', 
-          image: product.imageUrl,
-          width: width,
-          height: height,
-          // imageCacheWidth: width.toInt(),
-          // imageCacheHeight: height.toInt(),
-          fit: BoxFit.contain,
-        );
+  /// Returns segment control list of product options.
+  List<Widget> _buildOptions() {
+    List<Widget> result = List<Widget>();
+
+    widget._product.options.forEach((optionCode, option) {
+      result.add(_buildOption(optionCode, option.values));
+    });
+    
+    return result;
+  }
+
+  /// Return segment control widget for concrete option.
+  Widget _buildOption(String optionCode, Map<String, String> values) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 10.0,
+              horizontal: 0.0,
+            ),
+            child: CupertinoSlidingSegmentedControl(
+              padding: EdgeInsets.all(3.0),
+              groupValue: _currentOptions[optionCode],
+              children: values.map<dynamic, Widget>((key, value) => MapEntry(key, Text(value))),
+              onValueChanged: (value) {
+                setState(() {
+                  _currentOptions[optionCode] = value;
+                });
+              }
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Returns big bottom "Add to Cart" botton widget.
+  Widget _buildAddToCartButton() {
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: <Widget>[
+        MaterialButton(
+          onPressed: () {},
+          child: Text('Добавить в корзину за ${_getPrice()}', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+          color: Theme.of(context).buttonColor,
+          textColor: Colors.white,
+          padding: EdgeInsets.symmetric(horizontal: 25.0),
+          minWidth: double.maxFinite,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Formats current price and return it.
+  String _getPrice() {
+    Locale locale = Localizations.localeOf(context);
+    var price = NumberFormat.simpleCurrency(name: _currentVariant.price.currency, locale: locale.toString());
+    return price.format(_currentVariant.price.value / 100);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
