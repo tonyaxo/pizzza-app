@@ -3,9 +3,12 @@
 
 import 'package:flutter/foundation.dart';
 
+// TODO remove inherence.
 class BottomBarNotifiler extends ChangeNotifier {
 
-  final Map<int, String> routes = {0: '/catalog', 1: '/profile', 2: '/contacts', 3: '/cart'};
+  static const cartIndex = 3;
+
+  final Map<int, String> routes = {0: '/catalog', 1: '/profile', 2: '/contacts', cartIndex: '/cart'};
 
   int activeBarItem = 0;
 

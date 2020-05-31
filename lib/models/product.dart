@@ -50,6 +50,12 @@ class Product {
   /// Minimal price according to variants.
   Price get minPrice => _minPrice == null ? _calculateMinPrice() : _minPrice;
 
+  /// Wheter this product configurable.
+  bool get isConfigurable => !isSimple;
+
+  /// Wheter this product is simple.
+  bool get isSimple => options.isEmpty;
+
   /// Minimum varian price
   Price _calculateMinPrice() {
     if (variants.isEmpty) {
@@ -185,6 +191,8 @@ class ProductVariant {
 
   final VariantKey key;
 
+  List<String> nameAxis = List<String>();
+
   ProductVariant({this.code, this.key});
 
   factory ProductVariant.fromJson(Map<String, dynamic> json) {
@@ -195,6 +203,13 @@ class ProductVariant {
       code: json['code'],
       key: VariantKey(axis),
     );
+
+    if (json.containsKey('nameAxis')) {
+      Map<String, dynamic> names = json['nameAxis'];
+      names.forEach((key, value) {
+        result.nameAxis.add(value);
+      });
+    }
 
     if (json.containsKey('price')) {
       result.price = Price.fromJson(json['price']);

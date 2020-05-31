@@ -1,10 +1,14 @@
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
+import 'package:provider/provider.dart';
 
 import '../models/product.dart';
+import '../store/cart_store.dart';
+import '../mixins/format_price.dart';
+import '../store/bottom_bar_notifiler.dart';
+
 
 /// Screen shows product description and let choose variant to buy.
 class ProductScreen extends StatefulWidget {
@@ -34,7 +38,7 @@ class ProductScreen extends StatefulWidget {
 }
 
 /// Screen state.
-class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin {
+class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin, FormatPrice {
 
   final double mainPadding = 15.0;
 
@@ -63,8 +67,8 @@ class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin 
   
   @override
   Widget build(BuildContext context) {
-
     final imageWidth = MediaQuery.of(context).size.width - mainPadding * 2;
+    var barModel = Provider.of<BottomBarNotifiler>(context, listen: false);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -78,7 +82,10 @@ class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin 
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_basket), 
-            onPressed: () { Navigator.pushNamed(context, '/cart'); }
+            onPressed: () {
+              barModel.activeBarItem = BottomBarNotifiler.cartIndex;
+              Navigator.pushNamed(context, '/cart'); 
+            }
           ),
         ],
       ),
@@ -158,12 +165,24 @@ class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin 
 
   /// Returns big bottom "Add to Cart" botton widget.
   Widget _buildAddToCartButton() {
+
+    Price price = _currentVariant.price;
+
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: <Widget>[
         MaterialButton(
-          onPressed: () {},
-          child: Text('Добавить в корзину за ${_getPrice()}', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+          onPressed: () async {
+            CartStore cart = Provider.of<CartStore>(context, listen: false);
+            await cart.add(
+              widget._product.code, 
+              variantCode: widget._product.isConfigurable ? _currentVariant.code : null
+            );
+          },
+          child: Text(
+            'Добавить в корзину за ${asCurrency(price.value, price.currency)}', 
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)
+          ),
           color: Theme.of(context).buttonColor,
           textColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 25.0),
@@ -174,13 +193,6 @@ class _ProductScreen extends State<ProductScreen> with TickerProviderStateMixin 
         ),
       ],
     );
-  }
-
-  /// Formats current price and return it.
-  String _getPrice() {
-    Locale locale = Localizations.localeOf(context);
-    var price = NumberFormat.simpleCurrency(name: _currentVariant.price.currency, locale: locale.toString());
-    return price.format(_currentVariant.price.value / 100);
   }
 
   @override

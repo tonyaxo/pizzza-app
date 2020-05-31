@@ -28,9 +28,7 @@ class NavigationList extends StatelessWidget {
     return Observer(
       builder: (_) { 
         if (_categories.isEmpty) {
-          return CircularProgressIndicator(
-            backgroundColor: Colors.black,
-          );
+          return _buildProgress();
         }
 
         var items = _categories.entries.toList();
@@ -85,6 +83,24 @@ class NavigationList extends StatelessWidget {
 
     _controller.jumpTo(resultOffset);
   }
+}
+
+Widget _buildProgress() {
+  return Column(
+    children: <Widget>[
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: LinearProgressIndicator(
+              backgroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
   
 }
 

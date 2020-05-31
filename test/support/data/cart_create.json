@@ -1,0 +1,18 @@
+{
+  "tokenValue": "c1b5afd9-d066-4c8b-bb65-8c39e712a3e4",
+  "channel": "main_channel",
+  "currency": "RUB",
+  "locale": "ru",
+  "checkoutState": "cart",
+  "items": [],
+  "totals": {
+    "total": 0,
+    "items": 0,
+    "taxes": 0,
+    "shipping": 0,
+    "promotion": 0
+  },
+  "payments": [],
+  "shipments": [],
+  "cartDiscounts": []
+}

@@ -1,7 +1,9 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../models/product.dart';
 import '../widgets/home_carousel.dart';
 import '../widgets/bottom_bar.dart';
 import '../widgets/navigation_list.dart';
@@ -118,16 +120,37 @@ class _HomePageState extends State<HomePage> {
 
   Widget _catalogContent() {
     if (widget._store.products.isEmpty) {
-      return SliverToBoxAdapter(
-        child: CircularProgressIndicator(),
-      );
+      return _buildEmptyContent();
     }
 
+    var products = widget._store.products.entries.toList();
     return SliverFixedExtentList(
       itemExtent: ProductListItem.height,
-      delegate: SliverChildListDelegate(
-        
-        widget._store.products.entries.map((product) => ProductListItem(product.value) ).toList()
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          MapEntry<String, Product> entry = products[index];
+          return ProductListItem(entry.value);
+        }, 
+        childCount: products.length,
+      ),
+      // delegate: SliverChildListDelegate(
+      //   widget._store.products.entries.map((product) => ProductListItem(product.value) ).toList()
+      // ),
+    );
+  }
+
+  Widget _buildEmptyContent() {
+    return SliverToBoxAdapter(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 20.0),
+            child: CupertinoActivityIndicator(
+              radius: 20.0,
+            ),
+          ),
+        ],
       ),
     );
   }
