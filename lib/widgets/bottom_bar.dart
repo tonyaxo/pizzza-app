@@ -32,7 +32,6 @@ class BottomBar extends StatelessWidget {
   }
 
   Widget _buildNavigationBar(BuildContext context) {
-    var cart = Provider.of<CartStore>(context);
     var barModel = Provider.of<BottomBarNotifiler>(context, listen: false);
 
     return BottomNavigationBar(
@@ -56,34 +55,8 @@ class BottomBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           // https://stackoverflow.com/a/54094844/5957073
-          icon: Stack(
-            children: <Widget>[
-              Icon(Icons.shopping_basket, size: iconSize),
-              Positioned(
-                right: 0,
-                child: Container(
-                  padding: EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  constraints: BoxConstraints(
-                    minWidth: 16,
-                    minHeight: 16,
-                  ),
-                  child: Observer(
-                    builder: (_) => Text(
-                      "${cart.info.itemsQuantity}",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              )
-            ],
+          icon: Observer(
+              builder: (_) => _buildCartIcon(context)
           ),
           title: Text('Корзина'),
         ),
@@ -94,6 +67,41 @@ class BottomBar extends StatelessWidget {
         barModel.activeBarItem = index;
         Navigator.pushNamed(context, barModel.getRoute(index));
       },
+    );
+  }
+
+  Widget _buildCartIcon(BuildContext context) {
+    var cart = Provider.of<CartStore>(context);
+    if (cart.info.itemsQuantity == 0) {
+      return Icon(Icons.shopping_basket, size: iconSize);
+    }
+
+    return Stack(
+      children: <Widget>[
+        Icon(Icons.shopping_basket, size: iconSize),
+        Positioned(
+          right: 0,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            constraints: BoxConstraints(
+              minWidth: 16,
+              minHeight: 16,
+            ),
+            child: Text(
+              "${cart.info.itemsQuantity}",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        )
+      ],
     );
   }
 }

@@ -32,9 +32,12 @@ class CartScreen extends StatelessWidget with FormatPrice {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Consumer<CartStore>(
-      builder: (_, cart, __) {
-        return cart.info.isEmpty ? _buildEmpty(context) : _buildNotEmpty(context, cart);
+    return Observer(
+      builder: (ctx) {
+        var cart = Provider.of<CartStore>(ctx, listen: false);
+        // TODO investigate why it growing up
+        // print('rebuilded ${cart.info.itemsQuantity}');
+        return cart.info.itemsQuantity == 0 ? _buildEmpty(ctx) : _buildNotEmpty(ctx, cart);
       }
     );
   }
@@ -49,17 +52,13 @@ class CartScreen extends StatelessWidget with FormatPrice {
   }
 
   Widget _buildNotEmpty(BuildContext context, CartStore cart) {
-    return Observer(
-      builder: (context) {
-        return  ListView(
-          children: cart.info.items.entries.map<Widget>((entry) => CartListItem(entry.value)).toList() 
-          + [
-            _buildPromotionInfo(context, cart),
-            Divider(),
-            _buildTotal(context, cart)
-          ]
-        );
-      }
+    return  ListView(
+      children: cart.info.items.entries.map<Widget>((entry) => CartListItem(entry.value)).toList() 
+      + [
+        _buildPromotionInfo(context, cart),
+        Divider(),
+        _buildTotal(context, cart)
+      ]
     );
   }
 
@@ -182,7 +181,7 @@ class CartScreen extends StatelessWidget with FormatPrice {
 
   /// Returns checkout button.
   Widget _buildCheckoutButton(BuildContext context) {
-    var cart = Provider.of<CartStore>(context);
+    var cart = Provider.of<CartStore>(context, listen: false);
 
     return ButtonBar(
       alignment: MainAxisAlignment.center,

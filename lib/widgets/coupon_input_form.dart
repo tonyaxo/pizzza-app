@@ -29,7 +29,7 @@ class _CouponInputFormState extends State<CouponInputForm> {
 
   @override
   Widget build(BuildContext context) {
-    var cart = Provider.of<CartStore>(context);
+    var cart = Provider.of<CartStore>(context, listen: false);
 
     return Form(
       key: _formKey,
